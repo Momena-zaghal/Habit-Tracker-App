@@ -4,7 +4,6 @@ import Home from "./pages/Home";
 import AddHabit from "./pages/AddHabit";
 import TrackHabit from "./pages/TrackHabit";
 import AllHabits from "./pages/AllHabits";
-import Success from "./pages/Success";
 import Header from "./components/Header";
 
 function App() {
@@ -16,7 +15,6 @@ function App() {
         <Route path="/add" element={<AddHabit />} />
         <Route path="/track/:id" element={<TrackHabit />} />
         <Route path="/all" element={<AllHabits />} />
-        <Route path="/success" element={<Success />} />
       </Routes>
     </Router>
   );
