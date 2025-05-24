@@ -1,6 +1,7 @@
-import { Link } from "react-router-dom";
+import { Link, useLocation } from "react-router-dom";
 
 function Header() {
+  const location = useLocation();
   return (
     <header
       style={{
@@ -15,24 +16,36 @@ function Header() {
       }}
     >
       <h1 style={{ margin: 0 }}>🌟 Habit Tracker</h1>
-
-      <Link
-        to="/"
-        state={{
-          position: "absolute",
-          left: "1rem",
-          top: "50%",
-          transform: "translateY(-50%)",
-          backgroundColor: "#FFF",
-          color: "#333",
-          padding: "6px 10px",
-          borderRadius: "5px",
-          textDecoration: "none",
-          fontWeight: "bold",
-        }}
-      >
-        🏠 Home
-      </Link>
+      <div style={{ display: "flex", gap: "1rem" }}>
+        <Link
+          to="/"
+          style={{
+            backgroundColor: "#FFF",
+            color: "#333",
+            padding: "6px 10px",
+            borderRadius: "5px",
+            textDecoration: "none",
+            fontWeight: "bold",
+          }}
+        >
+          🏠 Home
+        </Link>
+        {location.pathname.startsWith("/track") && (
+          <Link
+            to="/all"
+            style={{
+              backgroundColor: "#FFF",
+              color: "#333",
+              padding: "6px 10px",
+              borderRadius: "5px",
+              textDecoration: "none",
+              fontWeight: "bold",
+            }}
+          >
+            📋 All Habits
+          </Link>
+        )}
+      </div>
     </header>
   );
 }
